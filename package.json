@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --mode development",
+    "build": "vite build",
     "build:beta": "vite build --mode beta",
     "build:release": "vite build --mode release",
     "serve": "vite preview",

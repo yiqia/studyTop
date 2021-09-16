@@ -26,6 +26,8 @@
     "@typescript-eslint/parser": "^4.31.1",
     "@vitejs/plugin-vue": "^1.6.1",
     "@vue/compiler-sfc": "^3.2.6",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
@@ -40,5 +42,10 @@
     "vite-plugin-components": "^0.13.3",
     "vite-plugin-style-import": "^1.2.1",
     "vue-tsc": "^0.2.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

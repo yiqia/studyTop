@@ -1,13 +1,18 @@
 <template>
   <el-container>
-    <el-header>Header</el-header>
+    <el-header><Header /></el-header>
     <el-main>
       <router-view />
     </el-main>
   </el-container>
 </template>
 <script lang="ts">
+import Header from '@/components/Header.vue'
+
 export default {
+  components: {
+    Header
+  },
   setup() {
     return {}
   }

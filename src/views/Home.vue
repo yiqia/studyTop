@@ -1,5 +1,5 @@
 <template>
-  <div>asd222</div>
+  <div>asd222s</div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
@@ -14,4 +14,8 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+div {
+  background: $bg-color;
+}
+</style>

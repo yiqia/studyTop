@@ -1,8 +1,6 @@
 import { mount } from '@vue/test-utils'
 import Test from '../views/Test.vue'
 
-console.log(Test)
-
 test('Test.vue', async () => {
   const wrapper = mount(Test)
   expect(wrapper.html()).toContain('Unit Test Page')

@@ -26,7 +26,8 @@
     "element-plus": "^1.1.0-beta.12",
     "normalize.css": "^8.0.1",
     "vue": "^3.2.6",
-    "vue-router": "4"
+    "vue-router": "^4.0.11",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",

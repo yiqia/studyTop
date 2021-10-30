@@ -17,7 +17,7 @@ export default defineConfig({
         {
           libraryName: 'element-plus',
           esModule: true,
-          resolveStyle: (name) => `element-plus/lib/theme-chalk/${name}.css`
+          resolveStyle: (name) => `element-plus/theme-chalk/${name}.css`
         }
       ]
     })

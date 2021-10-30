@@ -1,9 +1,9 @@
-import axios from '@/utils/axios'
+import { request } from '@/utils/axios'
 
 import { UserLoginReq } from '@/types'
 
 export const Login = (data: UserLoginReq) =>
-  axios({
+  request<UserLoginReq>({
     url: '/user/login',
     method: 'GET',
     params: data

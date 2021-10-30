@@ -13,6 +13,8 @@ import { defineComponent, reactive, toRefs } from 'vue'
 import { ElMessage } from 'element-plus'
 
 import { Login } from '@/service/user'
+import { localSet } from '@/utils'
+import router from '@/router'
 
 interface Data {
   form: {
@@ -34,10 +36,11 @@ export default defineComponent({
       }
     })
     const sendLogin = () => {
-      Login(data.form).then((e) => {
-        console.log(e)
+      Login(data.form).then((res) => {
+        ElMessage.success('登录成功')
+        localSet('session', res.data.session)
+        router.push('/home')
       })
-      ElMessage.error('123')
     }
     return {
       ...toRefs(data),

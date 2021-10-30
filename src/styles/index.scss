@@ -1,3 +1,12 @@
-// @import "theme/theme.scss";  // 主题样式
+@import "base/var.scss";  // 基础变量
+@import "base/normalize.scss";  // 基础样式
 
+@import "theme/theme.scss";  // 主题
 @import "tools/mixin.scss";  // 工具
+@import "base/global.scss";  // 全局样式
+
+
+
+
+
+

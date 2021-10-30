@@ -31,32 +31,29 @@ export default defineComponent({
   }
 })
 </script>
-<!--
-<style scoped lang="stylus">
+<style scoped lang="scss">
 .header {
-  width 100%
-  height 100%
-  bg_color(card_background_color)
-  display flex
-  justify-content space-between
-  align-items center
-  padding 0 20px
-  box-sizing border-box
-  font-weight bold
-  font_color(font_color_main)
-
+  @include background_color('background_color1');
+  @include font_color('font_color1');
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  font-weight: bold;
   .title {
-    font-size 20px
-    cursor pointer
+    font-size: 20px;
+    cursor: pointer;
   }
 
   .light {
-    cursor pointer
-    font-size 16px
-
+    cursor: pointer;
+    font-size: 16px;
     .icon {
-      font-size 20px
+      font-size: 20px;
     }
   }
 }
-</style> -->
+</style>

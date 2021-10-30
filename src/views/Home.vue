@@ -16,6 +16,6 @@ export default defineComponent({
 
 <style scoped lang="scss">
 div {
-  background: $bg-color;
+  @include background_color('background_color1');
 }
 </style>

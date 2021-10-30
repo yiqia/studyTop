@@ -21,7 +21,7 @@ export default defineComponent({
     // eslint-disable-next-line no-unused-vars
     const switchLights = () => {
       light.value = !light.value
-      window.document.documentElement.setAttribute('data-theme', light.value ? 'bright' : 'dark')
+      window.document.documentElement.setAttribute('data-theme', light.value ? 'light' : 'dark')
     }
     return {
       router,

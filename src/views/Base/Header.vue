@@ -1,9 +1,11 @@
 <template>
   <div class="header">
-    <div class="title" @click="router.push('/')">Vite2.x + Vue3.x + TypeScript Starter</div>
-    <div class="light" @click="switchLights">
-      <i class="fas fa-sun" v-show="light"></i>
-      <i class="fas fa-moon" v-show="!light"></i>
+    <div class="title" @click="router.push('/')">相册后台管理系统</div>
+    <div class="light">
+      <div class="exit" @click="exit">注销</div>
+
+      <i class="fas fa-sun" v-show="light" @click="switchLights"></i>
+      <i class="fas fa-moon" v-show="!light" @click="switchLights"></i>
     </div>
   </div>
 </template>
@@ -11,6 +13,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { localRemove } from '@/utils'
 
 export default defineComponent({
   name: 'Header',
@@ -23,8 +26,13 @@ export default defineComponent({
       light.value = !light.value
       window.document.documentElement.setAttribute('data-theme', light.value ? 'light' : 'dark')
     }
+    const exit = () => {
+      localRemove('session')
+      router.push('/login')
+    }
     return {
       router,
+      exit,
       switchLights,
       light
     }
@@ -49,10 +57,15 @@ export default defineComponent({
   }
 
   .light {
-    cursor: pointer;
     font-size: 16px;
+    display: flex;
+    .exit {
+      margin-right: 20px;
+      cursor: pointer;
+    }
     .icon {
       font-size: 20px;
+      cursor: pointer;
     }
   }
 }

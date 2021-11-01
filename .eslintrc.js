@@ -26,6 +26,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-absolute-path': 'off',
     'vue/no-multiple-template-root': 'off',
+    camelcase: 'off',
     'no-param-reassign': [
       'error',
       {

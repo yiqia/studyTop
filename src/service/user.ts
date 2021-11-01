@@ -1,9 +1,9 @@
 import { request } from '@/utils/axios'
 
-import { UserLoginReq } from '@/types'
+import { ResTypeTwo, UserLoginReq, UserLoginRes } from '@/types'
 
 export const Login = (data: UserLoginReq) =>
-  request<UserLoginReq>({
+  request<ResTypeTwo<UserLoginRes>>({
     url: '/user/login',
     method: 'GET',
     params: data

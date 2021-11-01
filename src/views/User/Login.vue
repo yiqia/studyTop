@@ -18,8 +18,8 @@ import router from '@/router'
 
 interface Data {
   form: {
-    user: String
-    pass: String
+    user: string
+    pass: string
   }
 }
 export default defineComponent({
@@ -37,14 +37,19 @@ export default defineComponent({
     })
     const sendLogin = () => {
       Login(data.form).then((res) => {
-        ElMessage.success('登录成功')
-        localSet('session', res.data.session)
-        router.push('/home')
+        if (res.data.code === 1024) {
+          ElMessage.success('登录成功')
+          localSet('session', res.data.session)
+
+          router.push('/album')
+        } else {
+          ElMessage.error(res.data.msg)
+        }
       })
     }
     return {
-      ...toRefs(data),
-      sendLogin
+      sendLogin,
+      ...toRefs(data)
     }
   }
 })

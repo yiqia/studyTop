@@ -4,11 +4,12 @@ import Home from '@/views/Home.vue'
 import Login from '@/views/User/Login.vue'
 import Album from '@/views/Album/Album.vue'
 import Pic from '@/views/Album/Pic.vue'
+import AlbumSet from '@/views/Album/Set.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/album'
   },
   {
     path: '/home',
@@ -24,6 +25,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/pic/:id',
         name: 'Pic',
         component: Pic
+      },
+      {
+        path: '/albumset',
+        name: 'AlbumSet',
+        component: AlbumSet
       }
     ]
   },

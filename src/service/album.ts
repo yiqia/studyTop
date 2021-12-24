@@ -4,9 +4,11 @@ import {
   PageReq,
   AlbumRes,
   ResTypeTwo,
+  ResType,
   PageCountReq,
   AlbumInfoRes,
-  saveAlbumInfoReq
+  SaveAlbumInfoReq,
+  AlbumSetRes
 } from '@/types'
 
 export const getAlbum = (data: PageReq) =>
@@ -30,9 +32,22 @@ export const getAlbumInfo = (id: number) =>
     }
   })
 
-export const saveAlbumInfo = (data: saveAlbumInfoReq) =>
+export const saveAlbumInfo = (data: SaveAlbumInfoReq) =>
   request<ResTypeTwo<{}>>({
     url: '/album/saveInfo',
+    method: 'POST',
+    data
+  })
+
+export const getAlbumSet = () =>
+  request<ResTypeTwo<AlbumSetRes>>({
+    url: '/album/getSet',
+    method: 'GET'
+  })
+
+export const saveAlbumSet = (data: AlbumSetRes) =>
+  request<ResType<{}>>({
+    url: '/album/saveAlbumSet',
     method: 'POST',
     data
   })

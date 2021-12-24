@@ -12,6 +12,9 @@
         <el-menu-item index="1-1" route="/album"
           ><div class="menu-item">相册列表</div></el-menu-item
         >
+        <el-menu-item index="1-2" route="/albumset"
+          ><div class="menu-item">相册设置</div></el-menu-item
+        >
       </el-sub-menu>
       <!-- <el-menu-item index="2">
         <i class="el-icon-menu"></i>

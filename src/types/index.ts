@@ -7,6 +7,18 @@ export interface ResType<T> {
   }
 }
 
+export interface ConfigType {
+  development: {
+    baseUrl: string
+  }
+  beta: {
+    baseUrl: string
+  }
+  release: {
+    baseUrl: string
+  }
+}
+
 export interface ResTypeTwo<T> {
   data: T
 }
@@ -36,6 +48,7 @@ export interface AlbumRes {
   num: number
   sort: number
   title: string
+  img_pro: number
 }
 
 export interface AlbumInfoRes {
@@ -53,13 +66,26 @@ export interface AlbumInfoRes {
       video: string
     }
   ]
+  img_pro: number
 }
 
-export interface saveAlbumInfoReq {
+export interface SaveAlbumInfoReq {
   Id: number
   title: string
   info: string
   is_show: number
   sort: number
   img: string
+  img_pro: number
+}
+export interface AlbumSetRes {
+  Id: string
+  img: string
+  info: string
+  name: string
+  wx: string
+  phone: string
+  share_title: string
+  share_img: string
+  img_pro_url: string
 }

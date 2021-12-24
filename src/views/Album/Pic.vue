@@ -17,6 +17,9 @@
             <el-form-item label="是否展示">
               <el-switch v-model="form.is_show"></el-switch>
             </el-form-item>
+            <el-form-item label="是否开启水印">
+              <el-switch v-model="form.img_pro"></el-switch>
+            </el-form-item>
             <el-form-item label="排序">
               <el-input v-model="form.sort"></el-input>
             </el-form-item>
@@ -43,13 +46,7 @@
       </el-tab-pane>
       <el-tab-pane label="上传图片" name="upload">
         <div class="album-upload">
-          <el-upload
-            class="upload"
-            drag
-            action="http://127.0.0.1:10008/album/updataPicQiniu"
-            multiple
-            :data="{ session, id: form.Id }"
-          >
+          <el-upload class="upload" drag :action="url" multiple :data="{ session, id: form.Id }">
             <el-icon class="el-icon--upload"><upload-filled /></el-icon>
             <div class="el-upload__text">可以拖拽文件上传 <em>点击文件上传</em></div>
             <template #tip>
@@ -65,8 +62,10 @@
 import { computed, defineComponent, reactive, toRefs } from 'vue'
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { UploadFilled } from '@element-plus/icons'
+import { ElMessage } from 'element-plus'
 import router from '@/router'
 import { localGet } from '@/utils'
+import config from '@/config/index'
 
 import { getAlbumInfo, saveAlbumInfo } from '@/service/album'
 
@@ -83,8 +82,10 @@ interface Data {
       img: string
       video: string
     }[]
+    img_pro: boolean | number
   }
   activeName: string
+  url: string
 }
 export default defineComponent({
   name: '',
@@ -102,8 +103,10 @@ export default defineComponent({
         is_show: false,
         sort: 0,
         img: '',
-        image: []
-      }
+        image: [],
+        img_pro: false
+      },
+      url: ''
     })
     const session = localGet('session')
     const previewImage = computed(() => {
@@ -112,6 +115,7 @@ export default defineComponent({
       }
       return []
     })
+    data.url = `${config[import.meta.env.MODE].baseUrl}/album/updataPicQiniu`
 
     const Id = Number(router.currentRoute.value.params.id)
     console.log('Id', Id)
@@ -121,7 +125,8 @@ export default defineComponent({
           console.log('res', res.data)
           data.form = {
             ...res.data,
-            is_show: !!res.data.is_show
+            is_show: !!res.data.is_show,
+            img_pro: !!res.data.img_pro
           }
           console.log(data.form)
         })
@@ -131,11 +136,12 @@ export default defineComponent({
     const onSubmit = () => {
       const albumData = {
         ...data.form,
-        is_show: data.form.is_show ? 1 : 0
+        is_show: data.form.is_show ? 1 : 0,
+        img_pro: data.form.img_pro ? 1 : 0
       }
       delete albumData.image
-      saveAlbumInfo(albumData).then((res) => {
-        console.log(res)
+      saveAlbumInfo(albumData).then(() => {
+        ElMessage.success('保存成功')
       })
     }
     return {
